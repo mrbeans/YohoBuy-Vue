@@ -1,6 +1,5 @@
-# yohobuy-vue
-
-> just a templete
+# YohoBuy-Vue
+a simple yohobuy app with vue
 
 ## Build Setup
 
