@@ -64,7 +64,7 @@
         localStorage.removeItem(REGISTER_KEY);
         localStorage.setItem(REGISTER_KEY, JSON.stringify(users));
         this.$router.push({
-            path: "/profile"
+            path: "/my"
         });
       }
     }

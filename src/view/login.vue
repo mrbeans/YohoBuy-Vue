@@ -67,7 +67,7 @@
         }
 
         this.$router.push({
-            path: "/profile"
+            path: "/my"
         });
       }
     }
