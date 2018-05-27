@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height:100%;">
         <router-view />
         <b-nav fill class="bottom-nav">
             <b-nav-item active>
