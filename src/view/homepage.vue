@@ -18,7 +18,7 @@
                 </router-link>
             </b-nav-item>
             <b-nav-item>
-                <router-link to="profile">
+                <router-link to="my">
                     我的
                 </router-link>
             </b-nav-item>

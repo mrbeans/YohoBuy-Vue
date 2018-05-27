@@ -31,21 +31,19 @@
     },
     methods:{
         removeFromCart(productId){
-            var SHOPPING_CART='shopping_cart_items';
-            var items=JSON.parse(localStorage.getItem(SHOPPING_CART))||[];
+            var items=JSON.parse(localStorage.getItem('shopping_cart_items'))||[];
             var item=items.find(x=>x.product_id===productId);
             if(item!==undefined&&item.product_id!==undefined){
                 var itemIndex=items.findIndex(x=>x.product_id===productId)
                 items.splice(itemIndex,1);
             }
             this.products=items;
-            localStorage.removeItem(SHOPPING_CART);
-            localStorage.setItem(SHOPPING_CART,JSON.stringify(items));
+            localStorage.removeItem('shopping_cart_items');
+            localStorage.setItem('shopping_cart_items',JSON.stringify(items));
         }
     },
     created(){
-        var SHOPPING_CART='shopping_cart_items';
-        this.products=JSON.parse(localStorage.getItem(SHOPPING_CART))||[];
+        this.products=JSON.parse(localStorage.getItem('shopping_cart_items'))||[];
     }
   }
 

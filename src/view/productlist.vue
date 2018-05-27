@@ -157,17 +157,16 @@
     },
     methods:{
         addToCart(productId){
-            var SHOPPING_CART='shopping_cart_items';
             var product=this.products.find(x=>x.product_id===productId);
             if(product===undefined||product.product_id===undefined||product.product_id.length<=0){
                 this.listMsg='商品无效，请刷新后重试';
             }
-            var items=JSON.parse(localStorage.getItem(SHOPPING_CART))||[];
+            var items=JSON.parse(localStorage.getItem('shopping_cart_items'))||[];
             //购物车为空，新增一个
             if(items===undefined||items.length<=0){
                 items.push(product);
-                localStorage.removeItem(SHOPPING_CART);
-                localStorage.setItem(SHOPPING_CART,JSON.stringify(items));
+                localStorage.removeItem('shopping_cart_items');
+                localStorage.setItem('shopping_cart_items',JSON.stringify(items));
                 this.$router.push({
                     path: "/shoppingcart"
                 });
@@ -177,8 +176,8 @@
             var cur=items.find(x=>x.product_id===productId);
             if(cur===undefined||cur.product_id===undefined||cur.product_id.length<=0){
                 items.push(product);
-                localStorage.removeItem(SHOPPING_CART);
-                localStorage.setItem(SHOPPING_CART,JSON.stringify(items));
+                localStorage.removeItem('shopping_cart_items');
+                localStorage.setItem('shopping_cart_items',JSON.stringify(items));
                 this.$router.push({
                     path: "/shoppingcart"
                 });
@@ -186,8 +185,8 @@
             }
             //购物车不为空，存在此商品，只增加库存
             cur.stock_number++;
-            localStorage.removeItem(SHOPPING_CART);
-            localStorage.setItem(SHOPPING_CART,JSON.stringify(items));
+            localStorage.removeItem('shopping_cart_items');
+            localStorage.setItem('shopping_cart_items',JSON.stringify(items));
             this.$router.push({
                 path: "/shoppingcart"
             });

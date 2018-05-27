@@ -50,20 +50,8 @@
         }
       },
       submitLogin() {
-        var LOGIN_KEY = "loginUser";
-        var REGISTER_KEY = "registerUser";
-        //先检测登录状态
-        var loginUser = JSON.parse(localStorage.getItem(LOGIN_KEY)) || {};
-        if (loginUser.loginPhone !== undefined && loginUser.loginPhone.length > 0) {
-          this.loginMsg = '手机号：' + loginUser.loginPhone + '已登录，请勿重复登录。';
-          this.$router.push({
-              path: "/profile"
-          });
-          return;
-        };
-
         //检测是否注册
-        var users = JSON.parse(localStorage.getItem(REGISTER_KEY)) || [];
+        var users = JSON.parse(localStorage.getItem("registerUser")) || [];
         if (users === undefined || users.length <= 0) {
           this.loginMsg = '登录失败，手机号未注册';
           return;
@@ -78,13 +66,6 @@
           return;
         }
 
-        //通过检测，登录
-        var loginUser = {
-          'loginPhone': this.loginPhone,
-          'loginPwd': this.loginPwd
-        };
-        localStorage.removeItem(LOGIN_KEY);
-        localStorage.setItem(LOGIN_KEY, JSON.stringify(loginUser));
         this.$router.push({
             path: "/profile"
         });
